@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример Чата</title>
+    <link href="/css/mine.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+
+<body>
+
+<div id="privateChatModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="chatWith"></h2>
+        <div id="privateChatMessages" class="chat-messages"></div>
+        <div class="input-container">
+            <input type="text" id="privateMessageInput" placeholder="Введите сообщение...">
+            <button id="sendPrivateMessageButton">Отправить</button>
+        </div>
+    </div>
+</div>
+
+<div id="chat-container">
+    <div id="chat-messages"></div>
+    <div id="input-container">
+        <input type="text" id="message-input" placeholder="Введите сообщение...">
+        <button id="send-button">Отправить</button>
+    </div>
+    <div id="user-count-container">
+        <div id="user-count-label">Current users:</div>
+        <div id="userCount">0</div>
+    </div>
+    <button id="exit-button" onclick="window.location.href='/'">Exit</button>
+</div>
+<div id="sidebar">
+    Online users
+    <div id="userList"></div>
+</div>
+<script th:inline="javascript">
+    const token = [[${token}]];
+    sessionStorage.setItem("token", token);
+</script>
+<script src="/js/websocket-client.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta charset="UTF-8">
+    <title>Login form</title>
+    <style>
+        label {
+            display: inline-block;
+            width: 100px;
+            text-align: left;
+            margin-right: 10px;
+        }
+
+        input {
+            width: 200px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input[type="submit"] {
+            margin-top: 5px;
+            margin-left: 114px;
+        }
+
+        button {
+            margin-top: 5px;
+            margin-left: 660px;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+<form method="POST" action="/login/signIn">
+    <label for="username">Username</label>
+    <input name="username" type="text" id="username"/>
+
+    <br>
+    <label for="password">Password</label>
+    <input name="password" type="text" id="password"/>
+    <br>
+
+    <input type="submit" value="Sign in">
+    <p th:text="${errorMessage}" style="color: red;"></p>
+
+</form>
+<button id="go-to-registration-form" onclick="window.location.href='/register/new'">Registration</button>
+</body>
+</html>
